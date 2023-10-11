@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Complementary_light_Color"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary_bg_Color"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_back_menu"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:importantForAccessibility="no"
+            android:onClick="toggleMenu"
+            app:srcCompat="@drawable/ic_back_arrow" />
+
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="410dp"
+            android:layout_height="729dp"
+            android:paddingRight="20dp"
+            android:paddingLeft="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/jost_semibold"
+                android:text="@string/tt_new_report"
+                android:textColor="@color/Color_secondary_black"
+                android:textSize="34sp"
+                android:layout_marginTop="20dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/primary_bg_Color"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_field_requiered_indication"
+                    android:textColor="@color/color_Sena" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tt_type_risk"
+                    android:fontFamily="@font/jost_bold"
+                    android:textColor="@color/Color_secondary_black"
+                    android:textSize="26sp" />
+                <AutoCompleteTextView
+                    android:id="@+id/actv_type_risk"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:textColorHint="@color/color_gray"
+                    android:textColor="@color/Color_secondary_black"
+                    android:hint="@string/placeholder_type_risk"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tt_area_of_report"
+                    android:fontFamily="@font/jost_bold"
+                    android:textColor="@color/Color_secondary_black"
+                    android:textSize="26sp" />
+
+                <AutoCompleteTextView
+                    android:id="@+id/actv_area"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:textColorHint="@color/color_gray"
+                    android:textColor="@color/Color_secondary_black"
+                    android:hint="@string/placeholder_area_risk"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tt_zone_of_report"
+                    android:fontFamily="@font/jost_bold"
+                    android:textColor="@color/Color_secondary_black"
+                    android:textSize="26sp" />
+
+                <AutoCompleteTextView
+                    android:id="@+id/actv_zone"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:textColor="@color/Color_secondary_black"
+                    android:textColorHint="@color/color_gray"
+                    android:hint="@string/placeholder_zone_risk" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tt_add_photo"
+                    android:fontFamily="@font/jost_bold"
+                    android:textColor="@color/Color_secondary_black"
+                    android:textSize="26sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_photo_indication"
+                    android:textColor="@color/color_gray"
+                    android:textSize="12sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/iv_preview_img"
+                        android:layout_width="200dp"
+                        android:background="@color/Complementary_light_Color"
+                        android:layout_height="150dp"
+                        app:srcCompat="@drawable/ic_camera"
+                        tools:ignore="ContentDescription"/>
+
+                    <ImageView
+                        android:id="@+id/iv_btn_camera"
+                        android:layout_width="87dp"
+                        android:layout_height="48dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="20dp"
+                        android:background="@color/color_Sena"
+                        android:importantForAccessibility="no"
+                        app:srcCompat="@drawable/ic_camera"
+                        android:onClick="addPhoto"/>
+
+
+
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/primary_bg_Color"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_field_optional_indication"
+                    android:textColor="@color/color_Sena" />
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tt_name_of_user"
+                    android:fontFamily="@font/jost_bold"
+                    android:textColor="@color/Color_secondary_black"
+                    android:textSize="26sp" />
+
+                <EditText
+                    android:id="@+id/ed_user_name_reported"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/tt_name_of_user"
+                    android:textColor="@color/Color_secondary_black"
+                    android:textColorHint="@color/color_gray"
+                    android:inputType="text"
+                    android:minHeight="48dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tt_description_report"
+                    android:fontFamily="@font/jost_bold"
+                    android:textColor="@color/Color_secondary_black"
+                    android:textSize="26sp" />
+                <EditText
+                    android:id="@+id/ed_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/Color_secondary_black"
+                    android:textColorHint="@color/color_gray"
+                    android:hint="@string/placeholder_description_report"
+                    android:inputType="textMultiLine" />
+            </LinearLayout>
+
+
+
+            <TextView
+                android:id="@+id/tv_btn_send_report"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:fontFamily="@font/jost_bold"
+                android:textSize="22dp"
+                android:textColor="@color/primary_bg_Color"
+                android:background="@color/color_fun_green"
+                android:text="@string/txt_btn_send_report"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"/>
+
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

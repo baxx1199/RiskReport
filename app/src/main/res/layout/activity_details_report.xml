@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Complementary_light_Color"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary_bg_Color"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:importantForAccessibility="no"
+            app:srcCompat="@drawable/ic_back_arrow" />
+
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="410dp"
+            android:layout_height="729dp"
+            android:paddingRight="20dp"
+            android:paddingLeft="20dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/primary_bg_Color"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_marginTop="20dp"
+                android:paddingVertical="30dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tt_main_reports"
+                    android:fontFamily="@font/jost_bold"
+                    android:textColor="@color/Color_secondary_black"
+                    android:textSize="26sp" />
+                <TextView
+                    android:id="@+id/tv_type_risk"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tt_type_risk"
+                    android:layout_marginBottom="5dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/Color_secondary_black"
+                    android:textSize="26sp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/tt_area_of_report"
+                            android:textColor="@color/Color_secondary_black"
+                            android:textSize="26sp" />
+                        <TextView
+                            android:id="@+id/tv_area"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/txt_ejem_report_area"
+                            android:textColor="@color/Color_secondary_black"
+                            android:textSize="18sp"
+                            android:textStyle="normal"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/tt_zone_of_report"
+                            android:textColor="@color/Color_secondary_black"
+                            android:textSize="26sp" />
+                        <TextView
+                            android:id="@+id/tv_zone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/txt_ejem_report_zone"
+                            android:textColor="@color/Color_secondary_black"
+                            android:textSize="18sp"
+                            android:textStyle="normal"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+
+
+
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tt_add_photo"
+                    android:fontFamily="@font/jost_bold"
+                    android:textColor="@color/Color_secondary_black"
+                    android:textSize="26sp" />
+
+
+                <ImageView
+                    android:id="@+id/iv_preview_img"
+                    android:layout_marginVertical="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="@color/color_gray"
+                    app:srcCompat="@drawable/ic_camera"
+                    tools:ignore="ContentDescription" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tt_description_report"
+                    android:textColor="@color/Color_secondary_black"
+                    android:textSize="26sp" />
+                <TextView
+                    android:id="@+id/tv_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_ejem_report_description"
+                    android:textColor="@color/Color_secondary_black"
+                    android:textSize="18sp"
+                    android:textStyle="normal"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tt_report_by"
+                    android:textColor="@color/Color_secondary_black"
+                    android:textSize="26sp" />
+                <TextView
+                    android:id="@+id/tv_user_reported"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_ejem_report_by"
+                    android:textColor="@color/Color_secondary_black"
+                    android:textSize="18sp"
+                    android:textStyle="normal"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tt_report_at"
+                    android:textColor="@color/Color_secondary_black"
+                    android:textSize="26sp" />
+                <TextView
+                    android:id="@+id/tv_dateAt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_ejem_report_at"
+                    android:textColor="@color/Color_secondary_black"
+                    android:textSize="18sp"
+                    android:textStyle="normal"/>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ly_edit_report_by_brigadier"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/primary_bg_Color"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:paddingVertical="20dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tt_validate_report"
+                    android:fontFamily="@font/jost_bold"
+                    android:textColor="@color/color_Sena"
+                    android:textSize="26sp" />
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tt_name_brigadier"
+                    android:fontFamily="@font/jost_bold"
+                    android:textColor="@color/Color_secondary_black"
+                    android:textSize="26sp" />
+
+                <EditText
+                    android:id="@+id/ed_name_brigadier"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/Color_secondary_black"
+                    android:textColorHint="@color/color_gray"
+                    android:hint="@string/text_placeholder_name_brigadier"
+                    android:inputType="text"
+                    android:minHeight="48dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tt_status_report"
+                    android:fontFamily="@font/jost_bold"
+                    android:textColor="@color/Color_secondary_black"
+                    android:textSize="26sp" />
+
+                <AutoCompleteTextView
+                    android:id="@+id/actv_status_report"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:textColor="@color/Color_secondary_black"
+                    android:textColorHint="@color/color_gray"
+                    android:hint="@string/placeholder_status_risk"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tt_description_report"
+                    android:fontFamily="@font/jost_bold"
+                    android:textColor="@color/Color_secondary_black"
+                    android:textSize="26sp" />
+                <EditText
+                    android:id="@+id/ed_observation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/Color_secondary_black"
+                    android:textColorHint="@color/color_gray"
+                    android:hint="@string/txt_ejem_report_description_validation"
+                    android:inputType="textMultiLine" />
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/tv_btn_update_report"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/color_fun_green"
+                android:fontFamily="@font/jost_bold"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:text="@string/txt_btn_update_report"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/primary_bg_Color"
+                android:textSize="22dp" />
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

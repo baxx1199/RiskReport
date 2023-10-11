@@ -1,0 +1,316 @@
+<resources>
+    <!-- general -->
+    <string name="app_name">SENA RiskReport</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_make_a_risk">Reporta un riesgo</string>
+
+    <!-- login -->
+    <string name="tt_login">Ris kReport</string>
+    <string name="description_login">Juntos, construyendo un entorno más seguro: Tu voz, nuestra acción. Informa cualquier riesgo, protege a todos.</string>
+    <string name="text_question_rol">¿Eres brigadista? Inicia Sesión, con el correo de la organizacion.</string>
+    <string name="text_forgott_password">¿Olvidaste tu contraseña?</string>
+    <string name="text_email">Correo</string>
+    <string name="text_password">Contraseña</string>
+    <string name="text_btn_login">Iniciar sesión</string>
+    <string name="text_btn_singin_google">Google</string>
+    <string name="text_btn_singin_facebook">Facebook</string>
+    <string name="text_btn_continue">Continuar como anonimo</string>
+    <string name="text_check_terms">Acepto los</string>
+    <string name="text_link_terms">Terminos y condiciones.</string>
+    <string name="text_optional">---------- ó ----------</string>
+    <string name="text_user_options">Inicia sesión como almunos o maestro.</string>
+
+
+    <string name="text_email_error">Correo no valido.</string>
+    <string name="text_email_empty_error">Debes ingresar un correo.</string>
+    <string name="text_password_error">Con     traseña incorrecta</string>
+
+
+    <!-- home -->
+    <string name="title_home_title">Bienvenido</string>
+    <string name="tt_lastReport">Ultimo reporte</string>
+    <string name="tt_historial">Historial de reportes</string>
+    <string name="txt_btn_new_report">Nuevo Reporte</string>
+    <string name="txt_btn_watch_report">Ir</string>
+    <string name="tt_report_at">Reportado el:</string>
+    <string name="tt_report_by">Reportado por:</string>
+    <string name="tt_area_of_report">Área</string>
+    <string name="tt_zone_of_report">Zone</string>
+
+    <!-- makeReport /user-->
+    <string name="tt_new_report">Nuevo reporte</string>
+    <string name="tt_type_risk">Tipo de riesgo</string>
+    <string name="placeholder_type_risk">Ej: Fisico</string>
+    <string name="placeholder_area_risk">Ej: Biblioteca</string>
+    <string name="placeholder_zone_risk">Ej: Salón 1</string>
+    <string name="tt_add_photo">Foto</string>
+    <string name="tt_name_of_user">Nombre de usuario</string>
+    <string name="tt_description_report">Descripción</string>
+    <string name="placeholder_description_report">Ej: El segundo escalón cuando hay clima calido es inestable.</string>
+    <string name="txt_btn_send_report">Enviar Reporte</string>
+    <string name="text_photo_indication">Debes adjuntar una foto en la que se aprecie el factor de riesgo siempre y cuando este sea visible. </string>
+    <string name="text_field_requiered_indication">Los siguientes campos son obligatorios*</string>
+    <string name="text_field_optional_indication">Los siguientes campos son opcionales</string>
+
+
+    <!-- makeReport /brigadier-->
+    <string name="tt_main_reports">Reporte de riesgo</string>
+    <string name="tt_validate_report">Revision de reporte</string>
+    <string name="tt_status_report">Estado</string>
+    <string name="txt_btn_update_report">Actualizar Reporte</string>
+    <string name="txt_ejem_report_at">02/03/2020  00:00:00</string>
+    <string name="txt_ejem_report_by">Jonh Doe</string>
+    <string name="txt_ejem_report_description">El segundo escalón cuando hay clima calido es inestable.</string>
+    <string name="txt_ejem_report_description_validation">Se verifico el escalon y se colocaron cintas antideslizantes para evitar accidentes.</string>
+    <string name="txt_ejem_report_area">Auditorio</string>
+    <string name="txt_ejem_report_zone">Salon 1</string>
+    <string name="txt_ejem_report_type">Riesgo fisico</string>
+    <string name="placeholder_status_risk">Revisado</string>
+    <string name="tt_name_brigadier">Nombre del revisor</string>
+    <string name="text_placeholder_name_brigadier">Ej: Maria Hernandez</string>
+
+    <!-- watch Reports /user -->
+    <!-- watch Reports /brigadier -->
+
+    <string name="text_label_reports">Todos</string>
+    <string name="text_label_reports_success">Revisados</string>
+    <string name="text_label_reports_pending">Pendientes</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <!-- Restore Password -->
+    <string name="tt_restore_password">Recuperar contraseña</string>
+    <string name="text_info_proces">Ingresa el correo registrado.</string>
+    <string name="text_restore_password">Tu seguridad es nuestra prioridad. SENA Risk Report utiliza la plataforma de seguridad de Firebase respaldada por Google. Esto significa que tus contraseñas están protegidas de manera sólida y ni SENA Risk report ni ningún tercero tienen acceso directo a tus contraseñas.</string>
+    <string name="text_btn_restor">Enviar correo</string>
+    <string name="text_btn_back_login">Regresar</string>
+
+    <!-- App-->
+    <string name="prefs_file">com.example.riskreport.PREFERENCE_FILE_KEY</string>
+    <string name="web_client_id">60870326918-d47is2asjcfjnne85q7aldep28m068fs.apps.googleusercontent.com</string>
+
+    <string name="facebook_app_id">2016440585372153</string>
+    <string name="fb_login_protocol_scheme">fb2016440585372153</string>
+    <string name="facebook_client_token">1f8b5a7bf933198e0bc72499441487fe</string>
+
+    <string-array name="report_status">
+        <item>Enviado</item>
+        <item>Validado</item>
+    </string-array>
+
+    <string-array name="types_risk">
+        <item>Biológico</item>
+        <item>Fisico</item>
+        <item>Químico</item>
+        <item>Psicosocial</item>
+        <item>Biomecánico</item>
+        <item>Condición insegura</item>
+        <item>Fenómeno natural</item>
+    </string-array>
+
+    <string-array name="sena_areas">
+        <item>Auditorio</item>
+        <item>Administración</item>
+        <item>Entrada</item>
+        <item>Zona deportiva</item>
+        <item>Lácteos</item>
+        <item>Biblioteca</item>
+        <item>Bloque A</item>
+        <item>Bloque B</item>
+        <item>Bloque C</item>
+        <item>Internado masculino</item>
+        <item>Internado femenino</item>
+        <item>Centro de convivencia</item>
+        <item>Gastronomía</item>
+        <item>Zona agrobiotecnológica</item>
+    </string-array>
+
+    <string-array name="zonas_auditorio">
+        <item>OFICINA SENNOVA</item>
+        <item>OFICINA RELACIONES CORPORATIVAS</item>
+        <item>AGENCIA PÚBLICA DE EMPLEO</item>
+        <item>INTERIOR</item>
+        <item>EXTERIOR</item>
+        <item>COORDINACIÓN ACADÉMICOS</item>
+        <item>BAÑOS PRIMER PISO</item>
+        <item>BAÑOS SEGUNDO PISO</item>
+        <item>PARQUEADERO</item>
+    </string-array>
+
+    <string-array name="zonas_administracion">
+        <item>ENFERMERÍA</item>
+        <item>SALÓN 101</item>
+        <item>SALÓN 102</item>
+        <item>SALÓN 103</item>
+        <item>SALÓN 104</item>
+        <item>SALÓN 105</item>
+        <item>SALÓN 106</item>
+        <item>SALÓN 107</item>
+        <item>BAÑOS PRIMER PISO</item>
+        <item>BAÑOS SEGUNDO PISO</item>
+        <item>CAFETERÍA</item>
+        <item>SALA DE ESPERA</item>
+        <item>SUBDIRECCIÓN</item>
+        <item>COORDINACIÓN DE FORMACIÓN</item>
+        <item>CUARTO DE COMUNICACIONES</item>
+        <item>EXTERIOR</item>
+    </string-array>
+
+    <string-array name="zonas_entrada">
+        <item>PORTERÍA</item>
+        <item>PARQUEADERO</item>
+        <item>COMERCIALIZADORA</item>
+    </string-array>
+
+    <string-array name="zonas_zona_deportiva">
+        <item>GIMNASIO</item>
+        <item>ALMACÉN DEPORTIVO</item>
+        <item>POLIDEPORTIVO</item>
+        <item>CANCHAS</item>
+    </string-array>
+
+    <string-array name="zonas_lacteos">
+        <item>INTERIOR</item>
+        <item>EXTERIOR</item>
+    </string-array>
+
+    <string-array name="zonas_biblioteca">
+        <item>BIBLIOTECA</item>
+        <item>AUDIOVISUALES - PORTÁTILES</item>
+        <item>PARQUEADERO</item>
+        <item>EXTERIOR</item>
+        <item>D5 - OFICINA DE EMPRENDIMIENTO</item>
+        <item>D8 TELEFONÍA Y SOPORTE</item>
+        <item>D9 - OFICINA DE SISTEMAS</item>
+        <item>SALÓN D10 - AUDIOVISUALES</item>
+        <item>OFICINA BIENESTAR</item>
+        <item>CAFETERÍA</item>
+        <item>SISTEMAS 1</item>
+        <item>SISTEMAS 2</item>
+        <item>BAÑOS PRIMER PISO</item>
+        <item>BAÑOS SEGUNDO PISO</item>
+    </string-array>
+
+    <string-array name="zonas_bloque_a">
+        <item>SALÓN A1</item>
+        <item>SALÓN A2</item>
+        <item>SALÓN A3</item>
+        <item>SALÓN A4</item>
+        <item>SALÓN A5</item>
+        <item>SALÓN A6</item>
+        <item>SALÓN A7</item>
+        <item>SALÓN A8</item>
+        <item>SALÓN A9</item>
+        <item>SALÓN A10</item>
+        <item>SALÓN A11</item>
+        <item>SALÓN A12</item>
+        <item>EXTERIOR</item>
+        <item>BAÑO MACULINO</item>
+        <item>BAÑO FEMENINO</item>
+    </string-array>
+
+    <string-array name="zonas_bloque_b">
+        <item>SALÓN B1</item>
+        <item>SALÓN B2</item>
+        <item>SALÓN B3</item>
+        <item>SALÓN B4</item>
+        <item>SALÓN B5</item>
+        <item>SALÓN B6</item>
+        <item>SALÓN B7</item>
+        <item>SALÓN B8</item>
+        <item>SALÓN B9</item>
+        <item>SALÓN B10</item>
+        <item>SALÓN B11</item>
+        <item>SALÓN B12</item>
+        <item>EXTERIOR</item>
+        <item>KIOSKO</item>
+        <item>BAÑO MASCULINO</item>
+        <item>BAÑO FEMENINO</item>
+    </string-array>
+
+    <string-array name="zonas_bloque_c">
+        <item>SALÓN C1</item>
+        <item>SALÓN C2</item>
+        <item>SALÓN C3</item>
+        <item>SALÓN C4</item>
+        <item>SALÓN C5</item>
+        <item>SALÓN C6</item>
+        <item>SALÓN C7</item>
+        <item>SALÓN C8</item>
+        <item>SALÓN C9</item>
+        <item>SALÓN C10</item>
+        <item>SALÓN C11</item>
+        <item>EXTERIOR</item>
+        <item>BAÑO MASCULINO</item>
+        <item>BAÑO FEMENINO</item>
+    </string-array>
+
+    <string-array name="zonas_internado_masculino">
+        <item>HABITACIÓN 3</item>
+        <item>HABITACIÓN 4</item>
+        <item>HABITACIÓN 5</item>
+        <item>HABITACIÓN 6</item>
+        <item>LAVANDERÍA</item>
+        <item>BODEGA</item>
+        <item>EXTERIOR</item>
+        <item>BAÑOS PRIMER PISO</item>
+        <item>BAÑOS SEGUNDO PISO</item>
+        <item>SALÓN DE ESPEJOS</item>
+        <item>OFICINA DE ARCHIVOS</item>
+        <item>OFICINA CELADOR</item>
+        <item>SALÓN DE MÚSICA</item>
+    </string-array>
+
+    <string-array name="zonas_internado_femenino">
+        <item>HABITACIÓN 1</item>
+        <item>HABITACIÓN 2</item>
+        <item>HABITACIÓN 3</item>
+        <item>HABITACIÓN 4</item>
+        <item>HABITACIÓN 5</item>
+        <item>HABITACIÓN 6</item>
+        <item>HABITACIÓN 7</item>
+        <item>HABITACIÓN 8</item>
+        <item>HABITACIÓN 9</item>
+        <item>HABITACIÓN 10</item>
+        <item>HABITACIÓN 11</item>
+        <item>HABITACIÓN 12</item>
+        <item>HABITACIÓN 13</item>
+        <item>HABITACIÓN 14</item>
+        <item>HABITACIÓN 15</item>
+        <item>HABITACIÓN 16</item>
+        <item>BAÑOS PRIMER PISO</item>
+        <item>BAÑOS SEGUNDO PISO</item>
+        <item>EXTERIOR</item>
+    </string-array>
+
+    <string-array name="zonas_centro_convivencia">
+        <item>INTERIOR</item>
+        <item>EXTERIOR</item>
+    </string-array>
+
+    <string-array name="zonas_gastronomia">
+        <item>COCINA</item>
+        <item>RESTAURANTE INTERNO</item>
+        <item>RESTAURANTE EXTERNO</item>
+        <item>CAFETERÍA</item>
+        <item>EXTERIOR</item>
+        <item>MICROONDAS</item>
+    </string-array>
+
+    <string-array name="zonas_zona_agrobiotecnologica">
+        <item>RECURSOS NATURALES</item>
+        <item>AGRICULTURA</item>
+        <item>AVICULTURA</item>
+        <item>MAQUINARIA AGRÍCOLA</item>
+        <item>LABORATORIO VEGETAL</item>
+        <item>LABORATORIO ANIMAL</item>
+        <item>UNIDAD ESPECIES MENORES</item>
+        <item>CAPRICULTURA</item>
+        <item>PORCICULTURA</item>
+        <item>ALMACÉN</item>
+        <item>PLANTA DE AGUA</item>
+        <item>GANADERÍA</item>
+    </string-array>
+</resources>

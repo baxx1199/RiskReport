@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".loginActivity"
+    android:background="@color/Complementary_light_Color"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:background="@drawable/gradient_bg">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="@color/Color_secondary_black"
+            android:textAlignment="center"
+            android:textSize="34dp"
+            android:layout_marginTop="20dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/Color_secondary_black"
+            android:textSize="16dp"
+            android:text="@string/description_login"
+            android:layout_marginTop="10dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/primary_bg_Color"
+            android:textSize="16dp"
+            android:text="@string/text_question_rol"
+            android:layout_marginTop="40dp"/>
+
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/primary_bg_Color"
+            android:backgroundTint="@color/primary_bg_Color"
+            android:backgroundTintMode="multiply"
+            android:textColor="@color/Color_secondary_black"
+            android:textColorHint="@color/color_gray"
+            android:hint="@string/text_email"
+            android:paddingLeft="20dp" />
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/primary_bg_Color"
+            android:backgroundTint="@color/primary_bg_Color"
+            android:backgroundTintMode="multiply"
+            android:textColorHint="@color/color_gray"
+            android:hint="@string/text_password"
+            android:inputType="textPassword"
+            android:textColor="@color/Color_secondary_black"
+            android:paddingLeft="20dp" />
+
+        <TextView
+            android:id="@+id/tv_btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/Color_secondary_black"
+            android:outlineProvider="background"
+            android:paddingTop="12dp"
+            android:text="@string/text_btn_login"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/primary_bg_Color"
+            android:textSize="16dp"
+            android:onClick="login"/>
+
+
+        <TextView
+            android:id="@+id/tv_forgott_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/primary_bg_Color"
+            android:textSize="18dp"
+            android:text="@string/text_forgott_password"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="6dp"/>
+
+        <!--<LinearLayout
+            android:id="@+id/ly_layaout_terms"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginBottom="15dp"
+            android:paddingLeft="40dp">
+            
+            <CheckBox
+                android:id="@+id/cb_terms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_check_terms"
+                android:textColor="@color/Color_primary_black"
+                android:textSize="14dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/Color_primary_black"
+                android:textSize="14dp"
+                android:layout_marginLeft="4sp"
+                android:text="@string/text_link_terms"/>
+        </LinearLayout>-->
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="311dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/text_user_options"
+            android:textAlignment="center"
+            android:textColor="@color/Color_secondary_black"
+            android:textSize="14dp"
+            tools:ignore="TextSizeCheck" />
+
+        <TextView
+            android:id="@+id/tv_btn_login_google"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/primary_bg_Color"
+            android:onClick="loginWithGoogle"
+            android:outlineProvider="background"
+            android:paddingTop="15dp"
+            android:text="@string/text_btn_singin_google"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/Color_secondary_black"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/tv_btn_login_facebook"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/primary_bg_Color"
+            android:onClick="loginWithFacebook"
+            android:outlineProvider="background"
+            android:paddingTop="15dp"
+            android:text="@string/text_btn_singin_facebook"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/Color_secondary_black"
+            android:textSize="16dp" />
+
+        <!-- <TextView
+            android:id="@+id/btn_continuo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Continuar sin Iniciar"
+            android:onClick="loginAnonimo"
+             android:background="@color/color_fun_green"
+            android:fontFamily="@font/jost_bold"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/primary_bg_Color"
+            android:textSize="22dp"
+
+            />-->
+        <TextView
+            android:id="@+id/tv_btn_anonimo"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/color_fun_green"
+            android:onClick="loginAnonimo"
+            android:outlineProvider="background"
+            android:paddingTop="12dp"
+            android:text="@string/text_btn_continue"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/primary_bg_Color"
+            android:textSize="16dp" />
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:layout_gravity="right"
+            android:layout_marginTop="5dp"
+            app:srcCompat="@drawable/logosenaverde"
+            android:importantForAccessibility="no" />
+    </LinearLayout>
+
+
+
+
+
+
+</LinearLayout>
