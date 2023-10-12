@@ -96,7 +96,7 @@
     <string name="facebook_client_token">1f8b5a7bf933198e0bc72499441487fe</string>
 
     <string-array name="report_status">
-        <item>Enviado</item>
+        <item>Pendiente</item>
         <item>Validado</item>
     </string-array>
 

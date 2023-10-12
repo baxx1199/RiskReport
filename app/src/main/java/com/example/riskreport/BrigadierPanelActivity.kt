@@ -65,7 +65,7 @@ class BrigadierPanelActivity : AppCompatActivity() {
         }
         btn_see_pendig_reports.setOnClickListener {
             tableReports?.removeAllViews()
-            showReportsByStatus("Enviado", allRecords)
+            showReportsByStatus("Pendiente", allRecords)
         }
         btn_see_success_reports.setOnClickListener {
             tableReports?.removeAllViews()
@@ -200,6 +200,4 @@ class BrigadierPanelActivity : AppCompatActivity() {
 
         renderReports(filteredReports.toMutableList())
     }
-
-
 }

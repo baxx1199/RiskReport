@@ -15,13 +15,11 @@ import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.activity.result.ActivityResult
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.FileProvider
 
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import java.io.ByteArrayOutputStream
 import java.io.File
@@ -30,7 +28,7 @@ import java.util.Date
 import java.util.Locale
 
 class NewReporActivity : AppCompatActivity() {
-
+    private var isReportBeingSaved = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_repor)
@@ -54,9 +52,6 @@ class NewReporActivity : AppCompatActivity() {
 
         val risk_types_adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, riskTypes)
         val sena_areas_adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, senaAreas)
-        val zonaAdapter = ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line)
-
-
 
         actv_types.setAdapter(risk_types_adapter)
         actv_areas.setAdapter(sena_areas_adapter)
@@ -113,6 +108,12 @@ class NewReporActivity : AppCompatActivity() {
     }
 
     fun sendReport(){
+        if (isReportBeingSaved) {
+            return
+        }
+        Toast.makeText(baseContext, "Guardando reporte", Toast.LENGTH_SHORT).show()
+        isReportBeingSaved = true
+        disableButton()
         saveReport()
     }
     private fun saveReport(){
@@ -123,6 +124,17 @@ class NewReporActivity : AppCompatActivity() {
 
         val areaOfRisk = actv_areas.text.toString()
         val zonaOfRisk = actv_zona.text.toString()
+
+        val typeOfRisk = actv_types.text.toString()
+        val area_of_risk = actv_areas.text.toString()
+        val zone_of_risk = actv_zona.text.toString()
+        // Validar que las variables no sean nulas o cadenas vacías
+        if (typeOfRisk.isEmpty() || area_of_risk.isEmpty() || zone_of_risk.isEmpty() || fileImage == null) {
+            Toast.makeText(baseContext, "No ser guardo el reporte, Asegúrate de completar todos los campos y adjuntar una imagen.", Toast.LENGTH_SHORT).show()
+            isReportBeingSaved = false
+            enableButton()
+            return
+        }
 
         val documentName = generateDocumentName(areaOfRisk, zonaOfRisk)
 
@@ -136,11 +148,20 @@ class NewReporActivity : AppCompatActivity() {
             .set(report)
             .addOnSuccessListener {
                 // El informe se guardó exitosamente
+                Toast.makeText(baseContext, "El reporte se guardo exitosamente.", Toast.LENGTH_SHORT).show()
+
+                isReportBeingSaved = false
+                enableButton()
                 val imageBitmap = BitmapFactory.decodeFile(fileImage.toString())
                 uploadImageToStorage(nameCollectionDb, documentName, imageBitmap)
             }
             .addOnFailureListener { exception ->
                 // Ocurrió un error al agregar el documento
+                Toast.makeText(baseContext, "Ocurrio un error y el reporte no se pudo guardar.", Toast.LENGTH_SHORT).show()
+
+                isReportBeingSaved = false
+                enableButton()
+
                 Log.e(TAG, "Error al agregar el documento", exception)
                 // Manejar el error según tus necesidades
             }
@@ -157,18 +178,18 @@ class NewReporActivity : AppCompatActivity() {
         val ed_username = findViewById<TextView>(R.id.ed_user_name_reported)
         val ed_description = findViewById<TextView>(R.id.ed_description)
 
-        var dataRegister = SimpleDateFormat("dd/MM/yyyy").format(Date())
+        val dataRegister = SimpleDateFormat("dd/MM/yyyy").format(Date())
         val typeOfRisk = actv_types.text.toString()
         val area_of_risk = actv_areas.text.toString()
         val zone_of_risk = actv_zona.text.toString()
         var reported_by = ed_username.text.toString()
 
-        if (reported_by.isNullOrEmpty()) {
+        if (reported_by.isEmpty()) {
             reported_by = ""
         }
 
         var description = ed_description.text.toString()
-        if (description.isNullOrEmpty()) {
+        if (description.isEmpty()) {
             description = ""
         }
 
@@ -182,7 +203,7 @@ class NewReporActivity : AppCompatActivity() {
             "description_risk" to description,
             "reported_at" to dataRegister,
             /*"location" to "",*/
-            "status" to "Enviado",
+            "status" to "Pendiente",
             "brigadier_name" to "",
             "revision_date" to "",
             "observation" to "",
@@ -276,13 +297,25 @@ class NewReporActivity : AppCompatActivity() {
             }
             .addOnFailureListener { exception ->
                 Log.e(TAG, "Error al actualizar la referencia de imagen en el documento del informe", exception)
-                // Manejar el error según tus necesidades
+
             }
     }
 
     fun backMenu(){
 
             startActivity(Intent(this, MainActivity::class.java))
+    }
+
+    // Habilitar el botón
+    private fun enableButton() {
+        val btnSendReport = findViewById<TextView>(R.id.tv_btn_send_report)
+        btnSendReport.isEnabled = true
+    }
+
+    // Deshabilitar el botón
+    private fun disableButton() {
+        val btnSendReport = findViewById<TextView>(R.id.tv_btn_send_report)
+        btnSendReport.isEnabled = false
     }
 
 }

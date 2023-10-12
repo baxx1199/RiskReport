@@ -15,6 +15,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.bumptech.glide.Glide
 import com.google.firebase.firestore.FirebaseFirestore
@@ -31,7 +32,7 @@ class DetailsReportActivity : AppCompatActivity() {
     private lateinit var provider_ : String
     private lateinit var btnUpdateReport: TextView
     private lateinit var iv_image_preview: ImageView
-
+    private var isReportBeingSaved = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details_report)
@@ -98,6 +99,7 @@ class DetailsReportActivity : AppCompatActivity() {
     private fun setup(type_risk:String,area_of_risk:String,zone_of_risk:String,reported_at:String,reported_by:String,description_risk:String,status:String,brigadier_name:String,revision_date:String,observation:String,id:String, provider:String, imgUrl:String, imgName:String){
 
         btnUpdateReport.setOnClickListener {
+            validation_status_button()
             updateReport(id,type_risk,area_of_risk,zone_of_risk,reported_at,reported_by,description_risk,status,brigadier_name,revision_date,observation,imgUrl)
         }
         val tv_type_risk = findViewById<TextView>(R.id.tv_type_risk)
@@ -133,6 +135,14 @@ class DetailsReportActivity : AppCompatActivity() {
         }
 
     }
+    fun validation_status_button(){
+        if (isReportBeingSaved) {
+            return
+        }
+        Toast.makeText(baseContext, "Actualizando reporte", Toast.LENGTH_SHORT).show()
+        isReportBeingSaved = true
+        disableButton()
+    }
 
     //ocultar opciones de edicion de reporte si no son brigadistas
     private fun toggleFormForBrigadier(){
@@ -165,13 +175,22 @@ class DetailsReportActivity : AppCompatActivity() {
             .set(report)
             .addOnSuccessListener {
                 // El informe se guardó exitosamente
+                Toast.makeText(baseContext, "El reporte se actualizo exitosamente.", Toast.LENGTH_SHORT).show()
+
+                isReportBeingSaved = false
+                enableButton()
                 Log.d(ContentValues.TAG, "Informe guardado con nombre de documento: $documentName")
                 onBackPressed()
             }
             .addOnFailureListener { exception ->
                 // Ocurrió un error al agregar el documento
+                Toast.makeText(baseContext, "Ocurrio un error y el reporte no se pudo actualizar.", Toast.LENGTH_SHORT).show()
+
+                isReportBeingSaved = false
+                enableButton()
+
                 Log.e(ContentValues.TAG, "Error al agregar el documento", exception)
-                // Manejar el error según tus necesidades
+
             }
 
     }
@@ -232,5 +251,15 @@ class DetailsReportActivity : AppCompatActivity() {
                 }
             }
 
+    }
+    // Habilitar el botón
+    private fun enableButton() {
+       btnUpdateReport.isEnabled = true
+    }
+
+    // Deshabilitar el botón
+    private fun disableButton() {
+
+        btnUpdateReport.isEnabled = false
     }
 }
