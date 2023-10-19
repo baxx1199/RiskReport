@@ -49,6 +49,8 @@ class DetailsReportActivity : AppCompatActivity() {
         }
 
 
+
+
         val bundle = intent.extras
         provider_=  bundle?.getString( "provider")!!
         val id_name=  bundle?.getString( "id")
@@ -100,7 +102,7 @@ class DetailsReportActivity : AppCompatActivity() {
 
         btnUpdateReport.setOnClickListener {
             validation_status_button()
-            updateReport(id,type_risk,area_of_risk,zone_of_risk,reported_at,reported_by,description_risk,status,brigadier_name,revision_date,observation,imgUrl)
+            updateReport(id,type_risk)
         }
         val tv_type_risk = findViewById<TextView>(R.id.tv_type_risk)
         val tv_area_risk = findViewById<TextView>(R.id.tv_area)
@@ -159,65 +161,69 @@ class DetailsReportActivity : AppCompatActivity() {
         }
     }
     
-   
-    private fun updateReport(id:String,type_risk:String,area_of_risk:String,zone_of_risk:String,reported_at:String,reported_by:String,description_risk:String,status:String,brigadier_name:String,revision_date:String,observation:String, imgUrl: String){
 
-
-        val type = type_risk
-        val documentName = id
-
+    private fun updateReport(
+        id: String,
+        type_risk:String
+    ) {
         val db = FirebaseFirestore.getInstance()
-       val report = createReport(documentName,type_risk,area_of_risk,zone_of_risk,reported_at,reported_by,description_risk,status,brigadier_name,revision_date,observation)
 
-        // Agregar un nuevo documento con un ID automático generado por Firebase Firestore
-        db.collection(type)
-            .document(documentName)
-            .set(report)
-            .addOnSuccessListener {
-                // El informe se guardó exitosamente
-                Toast.makeText(baseContext, "El reporte se actualizo exitosamente.", Toast.LENGTH_SHORT).show()
-
-                isReportBeingSaved = false
-                enableButton()
-                Log.d(ContentValues.TAG, "Informe guardado con nombre de documento: $documentName")
-                onBackPressed()
-            }
-            .addOnFailureListener { exception ->
-                // Ocurrió un error al agregar el documento
-                Toast.makeText(baseContext, "Ocurrio un error y el reporte no se pudo actualizar.", Toast.LENGTH_SHORT).show()
-
-                isReportBeingSaved = false
-                enableButton()
-
-                Log.e(ContentValues.TAG, "Error al agregar el documento", exception)
-
-            }
-
-    }
-    private fun createReport(id:String,type_risk:String,area_of_risk:String,zone_of_risk:String,reported_at:String,reported_by:String,description_risk:String,status:String,brigadier_name:String,revision_date:String,observation:String): HashMap<String, String> {
         val tv_status = findViewById<TextView>(R.id.actv_status_report)
         val tv_observation = findViewById<TextView>(R.id.ed_observation)
         val tv_name_brigadier = findViewById<TextView>(R.id.ed_name_brigadier)
 
-        var dataRevision = SimpleDateFormat("dd/MM/yyyy").format(Date())
+        val brigadierName= tv_name_brigadier.text.toString()
+        val status = tv_status.text.toString()
+        val observation = tv_observation.text.toString()
 
-        val report = hashMapOf(
-            "id" to id,
-            "risk_type" to type_risk,
-            "area_of_risk" to area_of_risk,
-            "zone_of_risk" to zone_of_risk,
-            "reported_by" to reported_by,
-            "description_risk" to description_risk,
-            "reported_at" to reported_at,
-            "status" to tv_status.text.toString(),
-            "brigadier_name" to tv_name_brigadier.text.toString(),
-            "revision_date" to dataRevision,
-            "observation" to tv_observation.text.toString(),
+        var revisionDate = SimpleDateFormat("dd/MM/yyyy").format(Date())
 
-            )
+        // Verifica que los campos obligatorios no sean nulos ni cadenas vacías
+        if (status.isBlank() || brigadierName.isBlank()) {
 
-        return report
+            Toast.makeText(baseContext, "Los campos Estado y Nombre del Brigadista son obligatorios", Toast.LENGTH_SHORT).show()
+            isReportBeingSaved = false
+            enableButton()
+            return
+        }
+
+        // Verifica que el estado sea "Pendiente" o "Revisado"
+        if (status != "Pendiente" && status != "Revisado") {
+            // Muestra un mensaje de error y no actualices el reporte
+            Toast.makeText(baseContext, "El estado debe ser 'Pendiente' o 'Revisado'", Toast.LENGTH_SHORT).show()
+            isReportBeingSaved = false
+            enableButton()
+            return
+        }
+
+        val updatedData:MutableMap<String,String> = hashMapOf(
+            "status" to status,
+            "brigadier_name" to brigadierName,
+            "revision_date" to revisionDate,
+            "observation" to observation
+        )
+
+        // Actualiza solo los campos específicos en Firebase Firestore
+        db.collection(type_risk)
+            .document(id)
+            .update(updatedData as Map<String, Any>)
+            .addOnSuccessListener {
+                // El informe se actualizó exitosamente
+                Toast.makeText(baseContext, "El reporte se actualizó exitosamente.", Toast.LENGTH_SHORT).show()
+                isReportBeingSaved = false
+                enableButton()
+                Log.d(ContentValues.TAG, "Informe actualizado con nombre de documento: $id")
+                onBackPressed()
+            }
+            .addOnFailureListener { exception ->
+                // Ocurrió un error al actualizar el documento
+                Toast.makeText(baseContext, "Ocurrió un error y el reporte no se pudo actualizar.", Toast.LENGTH_SHORT).show()
+                isReportBeingSaved = false
+                enableButton()
+                Log.e(ContentValues.TAG, "Error al actualizar el documento", exception)
+            }
     }
+
 
     private fun showalert(message: String){
         val builder = AlertDialog.Builder(this)
@@ -245,10 +251,10 @@ class DetailsReportActivity : AppCompatActivity() {
                 val bitmap = BitmapFactory.decodeFile(localFile.toString())
                 iv_image_preview.setImageBitmap(bitmap)
             }?.addOnFailureListener { exception ->
-
-                if (exception is StorageException) {
+                Toast.makeText(baseContext, "Se ha producido un error al obtener la imagen.", Toast.LENGTH_SHORT).show()
+                /*if (exception is StorageException) {
                     iv_image_preview.setImageResource(R.mipmap.loginbged)
-                }
+                }*/
             }
 
     }

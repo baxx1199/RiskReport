@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity() {
     private fun setup(email:String, provider:String){
         val tv_name_main = findViewById<TextView>(R.id.tv_name_main)
         title= "Home"
-        tv_name_main.text = "Alumno"
+        tv_name_main.text = "Aprendiz"
         provider_=provider
 
         getReports(provider)

@@ -69,7 +69,7 @@ class BrigadierPanelActivity : AppCompatActivity() {
         }
         btn_see_success_reports.setOnClickListener {
             tableReports?.removeAllViews()
-            showReportsByStatus("Validado", allRecords)
+            showReportsByStatus("Revisado", allRecords)
         }
 
         btn_logout = findViewById(R.id.iv_logout)

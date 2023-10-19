@@ -279,7 +279,7 @@ class loginActivity : AppCompatActivity() {
                     }
                 }
             }catch (e: ApiException){
-                showalert("Error al obtener el Account")
+                showalert(e.toString())
             }
 
         }

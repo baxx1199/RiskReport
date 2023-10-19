@@ -20,7 +20,7 @@
     <string name="text_check_terms">Acepto los</string>
     <string name="text_link_terms">Terminos y condiciones.</string>
     <string name="text_optional">---------- ó ----------</string>
-    <string name="text_user_options">Inicia sesión como almunos o maestro.</string>
+    <string name="text_user_options">Inicia sesión como Aprendiz o Instructor.</string>
 
 
     <string name="text_email_error">Correo no valido.</string>
@@ -89,7 +89,7 @@
 
     <!-- App-->
     <string name="prefs_file">com.example.riskreport.PREFERENCE_FILE_KEY</string>
-    <string name="web_client_id">60870326918-d47is2asjcfjnne85q7aldep28m068fs.apps.googleusercontent.com</string>
+    <string name="web_client_id">60870326918-ofa3ppp30edaeci8nsffjrcg3r5p69ff.apps.googleusercontent.com</string>
 
     <string name="facebook_app_id">2016440585372153</string>
     <string name="fb_login_protocol_scheme">fb2016440585372153</string>
@@ -97,7 +97,7 @@
 
     <string-array name="report_status">
         <item>Pendiente</item>
-        <item>Validado</item>
+        <item>Revisado</item>
     </string-array>
 
     <string-array name="types_risk">

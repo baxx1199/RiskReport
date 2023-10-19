@@ -135,6 +135,29 @@ class NewReporActivity : AppCompatActivity() {
             enableButton()
             return
         }
+        // Obtén los tipos de riesgo permitidos y las áreas permitidas desde los arrays de recursos
+        val allowedRiskTypes = resources.getStringArray(R.array.types_risk)
+        val allowedAreas = resources.getStringArray(R.array.sena_areas)
+
+        // Verifica si el tipo de riesgo y el área seleccionados son válidos
+        if (!allowedRiskTypes.contains(typeOfRisk)) {
+            // Muestra un mensaje de error y no permitas la creación del reporte
+            Toast.makeText(baseContext, "El tipo de riesgo seleccionado no es válido", Toast.LENGTH_SHORT).show()
+            isReportBeingSaved = false
+            enableButton()
+
+            return
+        }
+
+        if (!allowedAreas.contains(areaOfRisk)) {
+            // Muestra un mensaje de error y no permitas la creación del reporte
+            Toast.makeText(baseContext, "El área seleccionada no es válida", Toast.LENGTH_SHORT).show()
+            isReportBeingSaved = false
+            enableButton()
+
+            return
+        }
+
 
         val documentName = generateDocumentName(areaOfRisk, zonaOfRisk)
 
